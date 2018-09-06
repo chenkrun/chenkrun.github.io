@@ -2,7 +2,7 @@
 layout: post
 title: 对端口转发的误解
 date: 2018-08-14
-categories: network
+categories: Network
 tag: iptables
 excerpt: 本文介绍端口转发中对DNAT与SNAT或MASQUERADE组合的误解
 ---
