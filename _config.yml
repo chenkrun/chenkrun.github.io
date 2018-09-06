@@ -1,0 +1,17 @@
+future: true
+permalink: /:title/
+url: http://ckr815.github.io
+name: ChenKRun
+author: ChenKRun
+qq: 
+email: chenkrun@gmail.com
+duoshuo: 
+beian: 
+cnzz: 
+github: ckr815
+pygments: true
+paginate: 20
+truncate: true
+about: "ChenKRun"
+markdown: kramdown
+highlighter: rouge
