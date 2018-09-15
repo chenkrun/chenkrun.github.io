@@ -93,13 +93,13 @@ class Solution(object):
 米勒-拉宾素性检验，可以用以下伪代码表示：
 
 ```
-write n − 1 as 2r·d with d odd by factoring powers of 2 from n − 1
+write n − 1 as 2s·d with d odd by factoring powers of 2 from n − 1
 WitnessLoop: repeat k times:
     pick a random integer a in the range [2, n − 2]
     x ← ad mod n
     if x = 1 or x = n − 1 then
         continue WitnessLoop
-    repeat r − 1 times:
+    repeat s − 1 times:
     x ← x2 mod n
     if x = 1 then
         return composite
@@ -112,5 +112,48 @@ return probably prime
 Python实现实例：
 
 ```
-待完成
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import random
+
+
+def mod_exp(a, b, n):
+    '''大数模幂算法'''
+    result = 1
+    while b > 0:
+        if b&1 == 1:
+            result = result*a%n
+        a = a*a%n
+        b >>= 1
+    return result
+
+
+def witness(a, n):
+    s = 0
+    d = n-1
+    while d&1 == 0:
+        s += 1
+        d >>= 1
+    x = mod_exp(a, d, n)
+    if x == 1 or x == n-1:
+        return False
+    while s > 0:
+        x = x*x%n
+        if x == n-1:
+            return False
+        s -= 1
+    return True
+
+
+def judge_prime(n):
+    if n == 2:
+        return True
+    if n%2 == 0:
+        return False
+    for k in range(0, 50):
+        a = random.randint(2, n-2)
+        if witness(a, n):
+            return False
+    return True
 ```
