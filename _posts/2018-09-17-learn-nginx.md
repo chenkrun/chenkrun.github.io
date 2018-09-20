@@ -51,11 +51,24 @@ http {
 }
 ```
 
-- include：在当前文件中包含mime.type文件内容，用于加载稍后将会使用的MIME类型。
+- include：在当前文件中包含mime.type文件内容，用于加载稍后将会使用的MIME（Multipurpose Internet Mail Extension）类型。
 - default_type：当HTTP请求的文件没有在服务器中定义MIME类型映射时，使用default_type。
 - sendfile：启动**sendfile()**系统调用功能。
 - client_max_body_size：设置最大上传文件容量。
-- keepalive_timeout：设置HTTP请求结束后保持连接的超时时间。
+- keepalive_timeout：设置一个TCP连接上多次HTTP请求响应结束后，TCP连接保持连接的超时时间，目的是为了复用TCP连接，此为**HTTP keep-alive**机制。需要区别于**TCP keepalive**机制和**HTTP连接池keep-alive机制**。
+
+*TCP keepalive：当建立TCP连接时，会创建一些定时器，其中几种定时器用于处理keepalive。*
+
+```
+# cat /proc/sys/net/ipv4/tcp_keepalive_time
+7200
+# cat /proc/sys/net/ipv4/tcp_keepalive_intvl
+75
+# cat /proc/sys/net/ipv4/tcp_keepalive_probes
+9
+```
+
+*当TCP keepalive使能的条件下，如果在tcp_keepalive_time时间内没有数据，将向对端发送一个不包含数据部分的探测包。尝试探测次数为tcp_keepalive_probes，探测包发送的间隔为tcp_keepalive_intvl。如果探测次数内，仍然没有收到对方的响应，则认为该TCP连接失效并且关闭。因此，TCP keepalive机制作用在于保活、心跳、检测连接错误。*
 
 ### 1.2.1 server块
 
