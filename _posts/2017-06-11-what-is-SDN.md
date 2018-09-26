@@ -15,7 +15,7 @@ excerpt: 本文介绍SDN的概念、由来和发展
 
 # 什么是SDN
 
-![SDN架构.jpg](E:\Work\SDN\pic\SDN架构.jpg)
+![sdn_architecture.jpg](images/sdn_architecture.jpg)
 
 SDN官方解释中提出SDN三个特性：
 1. 集中式管理，即具有统一的管理接口；
@@ -40,11 +40,11 @@ SDN带来的最大好处在于通过SDN实现的网络功能的成本比传统�
 
 Nick McKeown在2009年发表了关于题为“Software-defined Networking”的演讲，这应该是关于SDN理念最早的阐述，他之前还发表了“Why can’t I innovate in my wiring closet?”的演讲，介绍了OpenFlow。他首先提出三个开放性话题，其中一个就是“making routers simpler”，描述了router的现状：
 
-![router.png](E:\Work\SDN\pic\router.png)
+![router.png](images/router.png)
 
 Nick Mckeown教授通过类比操作系统、应用以及基础架构如何创新，提出自己的创新想法：
 
-![架构.png](E:\Work\SDN\pic\架构.png)
+![architecture.png](images/architecture.png)
 
 OpenFlow是一个作用于flow-table的开放式API，FlowVisor是一个虚拟化的东西，用于集中处理OpenFlow协议和策略控制。
 为什么Nick McKeown教授会提出OpenFlow协议，这得回到flow-table和flow，进而回到Nick McKeown教授最初的需求：
@@ -53,18 +53,18 @@ OpenFlow是一个作用于flow-table的开放式API，FlowVisor是一个虚拟�
 
 但是，上述两者之间，难以有彻底的分离。既然当时的技术没法解决，就自己设计。为了达到硬件模板和开放式编程环境相分离，Nick McKeown让开发人员向一个Controller发送指令，利用datapath分发信息，底层根据接收到的信息进行工作，这就是最初的控制与数据处理相分离思想。
 
-![depatch_1.png](E:\Work\SDN\pic\depatch_1.png)
+![depatch_1.png](images/depatch_1.png)
 
 那么第二个问题，为了有一个简单、统一的硬件模板。Nick McKeown又设计了flow-table，放在每个计算单元（例如，switch、router）中。
 
-![depatch_2.png](E:\Work\SDN\pic\depatch_2.png)
+![depatch_2.png](images/depatch_2.png)
 
 既然是flow-table，那么datapath分发的信息应该是flow，那得对flow进行定义和控制。Nick McKeown提出了“Flowspace”，很像TCP/IP协议的架构吧。
 
-![Flowspace.png](E:\Work\SDN\pic\Flowspace.png)
+![Flowspace.png](images/Flowspace.png)
 
 最后，呈现的架构应该是这样的：
 
-![新架构.png](E:\Work\SDN\pic\新架构.png)
+![new_architecture.png](images/new_architecture.png)
 
 早在2009年，Nick McKeown就已经实现上述设想，发布了Python版本的控制器POX，以及OpenFlow1.0和开源网络虚拟化软件FlowVisor。
