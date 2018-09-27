@@ -68,13 +68,6 @@ excerpt: 本文介绍jinja2基础用法
 **3.对象型过滤器**
 
 ```
-{% set users=[{'name':'Tom','gender':'M','age':20},
-              {'name':'John','gender':'M','age':18},
-              {'name':'Mary','gender':'F','age':24},
-              {'name':'Bob','gender':'M','age':31},
-              {'name':'Lisa','gender':'F','age':19}]
-%}
-
 - attr(obj, name)
 {# 获取对象的属性 #}
 {{ foo | attr("bar") }}
