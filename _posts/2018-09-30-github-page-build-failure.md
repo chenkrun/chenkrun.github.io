@@ -27,7 +27,7 @@ If you have any questions you can contact us by replying to this email.
 
 从错误的描述，大致可以判断错误发生原因是：_posts/xxx.md文件中的*set*标签不被Liquid标签识别。
 
-由于_posts/xxx.md中带有jinja2模板的标签，而Jekyll使用Liquid模板，会将jinja2模板中的`set`、`for`、`{{}}`和`{%%}`当作Liquid模板的标签，导致解析错误。
+由于_posts/xxx.md中带有jinja2模板的标签，而Jekyll使用Liquid模板，会将jinja2模板中的`{% raw %}set{% endraw %}`、`{% raw %}for{% endraw %}`、`{% raw %}{{}}{% endraw %}`和`{% raw %}{%%}{% endraw %}`当作Liquid模板的标签，导致解析错误。
 
 ## 三、解决
 
