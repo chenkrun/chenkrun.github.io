@@ -35,9 +35,7 @@ If you have any questions you can contact us by replying to this email.
 
 ```
 {% raw %}
-{% raw %}
     ... ...
-{% endraw %}
 {% endraw %}
 ```
 
