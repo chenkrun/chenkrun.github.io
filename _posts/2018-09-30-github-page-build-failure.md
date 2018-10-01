@@ -35,9 +35,10 @@ If you have any questions you can contact us by replying to this email.
 
 ```
 {% raw %}
+{% raw %}
     ... ...
 {% endraw %}
-
+{% endraw %}
 ```
 
 参考：https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#raw
