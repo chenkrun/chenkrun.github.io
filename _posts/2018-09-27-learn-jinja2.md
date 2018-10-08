@@ -77,6 +77,12 @@ excerpt: 本文介绍jinja2基础用法
 "Hello {{ name | default('No name') }}!"
 {{ '' | d('the string was empty', true) }}
 {% endraw %}
+
+- lower(s)
+{% raw %}
+{# 将s转换为小写。 #}
+{{ "Job" | lower }}
+{% endraw %}
 ```
 
 **3.对象型过滤器**
@@ -126,6 +132,42 @@ excerpt: 本文介绍jinja2基础用法
 {% for grouper, list in users | groupby('gender') %}
     {{ grouper }} {{ list }}
 {% endfor %}
+{% endraw %}
+
+- indent(s, width=4, blank=False, indentfirst=None)
+{% raw %}
+{# 缩进width空格，blank行和indentfirst行默认不被缩进。 #}
+{{ "123\n45" | indent(indentfirst=True) }}
+{% endraw %}
+
+- int(value, default=0, base=10)
+{% raw %}
+{# 将value转换为整型。如果转换不成功，会返回default。base表示基础数，例如10进制、2进制等。 #}
+{{ 234 | int }}
+{% endraw %}
+
+- join(value, d=u'', attribute=None)
+{% raw %}
+{# 将value中的元素连接起来，d为元素间的分割符，并且能够给最后的对象加入attribute（2.6版本）。 #}
+{{ ["John", "Tom", "Sam"] | join(d=',') }}
+{% endraw %}
+
+- last(seq)
+{% raw %}
+{# 返回列表的最后一项。 #}
+{{ ["John", "Tom", "Sam"] | last }}
+{% endraw %}
+
+- length(object)
+{% raw %}
+{# 返回列表或字典的项数目。 #}
+{{ users | length }}
+{% endraw %}
+
+- list(value)
+{% raw %}
+{# 将value转换为list。 #}
+{{ users | list }}
 {% endraw %}
 ```
 
