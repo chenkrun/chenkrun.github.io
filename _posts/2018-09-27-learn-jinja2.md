@@ -169,6 +169,25 @@ excerpt: 本文介绍jinja2基础用法
 {# 将value转换为list。 #}
 {{ users | list }}
 {% endraw %}
+
+- map()
+{% raw %}
+{# 在对象序列上应用筛选器或查找属性 #}
+{{ users | map(attribute='name') | join(',') }}
+{{ ["John", "Tom", "Sam"] | map('lower') | join(',') }}
+{% endraw %}
+
+- pprint(value, verbose=False)
+{% raw %}
+{# pretty打印value #}
+{{ "Job" | pprint(verbose=True) }}
+{% endraw %}
+
+- random
+{% raw %}
+{# 返回序列里的随机值 #}
+{{ ["John", "Tom", "Sam"] | random }}
+{% endraw %}
 ```
 
 **注意**：
