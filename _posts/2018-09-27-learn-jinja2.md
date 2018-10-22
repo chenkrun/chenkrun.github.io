@@ -182,6 +182,12 @@ excerpt: 本文介绍jinja2基础用法
 {# pretty打印value #}
 {{ "Job" | pprint(verbose=True) }}
 {% endraw %}
+
+- random
+{% raw %}
+{# 返回序列里的随机值 #}
+{{ ["John", "Tom", "Sam"] | random }}
+{% endraw %}
 ```
 
 **注意**：
